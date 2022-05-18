@@ -60,50 +60,35 @@ const Formulario = ({crearCita}) => {
 
     return ( 
         <Fragment>
-            <h2>Crear Turno</h2>
+            <h2>Cotizar</h2>
 
             { error ? <p className="alerta-error">Todos los campos son obligatorios</p> : null }
 
             <form
                 onSubmit={submitCita}
             >
-                <label>Nombre Mascota</label>
+                <label>Valor del dolar Argentina</label>
                 <input
                     type="text"
                     name="mascota"
                     className="u-full-width"
-                    placeholder="Nombre Mascota"
+                    placeholder="Pesos Argeninos"
                     onChange={actualizarState}
                     value={mascota}
                     
                 />
-                <label>Nombre Dueño</label>
+                <label>Valor en pesos mexicanos</label>
                 <input
                     type="text"
                     name="propietario"
                     className="u-full-width"
-                    placeholder="Nombre Dueño de la Mascota"
+                    placeholder="Pesos Mexicanos"
                     onChange={actualizarState}
                     value={propietario}
                     
                 />
-                <label>Fecha</label>
-                <input
-                    type="date"
-                    name="fecha"
-                    className="u-full-width"
-                    onChange={actualizarState}
-                    value={fecha}
-                />
-                <label>Hora</label>
-                <input
-                    type="time"
-                    name="hora"
-                    className="u-full-width"
-                    onChange={actualizarState}
-                    value={hora}
-                />
-                <label>Sintomas</label>
+                
+                <label>Productos</label>
                 <textarea
                     className="u-full-width"
                     name="sintomas"
@@ -114,7 +99,7 @@ const Formulario = ({crearCita}) => {
                 <button
                     type="submit"
                     className="u-full-width button-primary"
-                >Agregar turno</button>
+                >Calcular</button>
             </form>
         </Fragment>
      );

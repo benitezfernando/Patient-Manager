@@ -41,12 +41,12 @@ function App() {
 
   //Mensaje condicional
 
-  const titulo = citas.length === 0 ? 'No hay turnos' : 'Administra tus turnos';
+  const titulo = citas.length === 0 ? 'No hay calculos' : 'Administra tus calculos';
 
 
   return (
     <Fragment>
-      <h1>Administrador de Turnos</h1>
+      <h1>Calculadora viaje Mexico</h1>
 
       <div className="container">
           <div className="row">
