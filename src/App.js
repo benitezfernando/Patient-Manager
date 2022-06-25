@@ -41,9 +41,7 @@ function App() {
 
   return (
     <Fragment>
-      // eslint-disable-next-line
-      <h1>&#128747;&#128526;&#127865;&#128262;</h1>
-
+      <p className='titulo'>&#128747;&#128526;&#127865;&#128262;</p>
       <div className="container">
         <div className="row">
           <div className="one-half column">
