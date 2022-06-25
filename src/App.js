@@ -41,6 +41,7 @@ function App() {
 
   return (
     <Fragment>
+      // eslint-disable-next-line
       <h1>&#128747;&#128526;&#127865;&#128262;</h1>
 
       <div className="container">
