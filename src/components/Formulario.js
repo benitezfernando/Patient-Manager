@@ -6,11 +6,9 @@ const Formulario = ({crearCita}) => {
 
     //Crear State de agenda
     const [cita,actualizarCita] = useState({
-        mascota: '',
-        propietario: '',
-        fecha: '',
-        hora: '',
-        sintomas: ''
+        dolarTarjetaArg: '',
+        pesosMexicanos: '',
+        producto: ''
 
     })
 
@@ -27,7 +25,7 @@ const Formulario = ({crearCita}) => {
     }
 
     //Extraer los valores
-    const { mascota,propietario,fecha,hora,sintomas} = cita
+    const { dolarTarjetaArg,pesosMexicanos,producto} = cita
     
     //Cuando el usuario presiona envar formulario
     const submitCita = e => {
@@ -35,7 +33,7 @@ const Formulario = ({crearCita}) => {
 
         //Validar
 
-        if(mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === ''){
+        if(dolarTarjetaArg.trim() === '' || pesosMexicanos.trim() === '' || producto.trim() === '' ){
             actualizarError(true);
             return
         }
@@ -50,11 +48,9 @@ const Formulario = ({crearCita}) => {
 
         //Reiniciar el form
         actualizarCita({
-            mascota: '',
-            propietario: '',
-            fecha: '',
-            hora: '',
-            sintomas: ''
+            dolarTarjetaArg: '',
+            pesosMexicanos: '',
+            producto: ''
         })
     }
 
@@ -67,33 +63,33 @@ const Formulario = ({crearCita}) => {
             <form
                 onSubmit={submitCita}
             >
-                <label>Valor del dolar Argentina</label>
+                <label>Valor del dolar Tarjeta / Blue (el que quieran) Argentina</label>
                 <input
                     type="text"
-                    name="mascota"
+                    name="dolarTarjetaArg"
                     className="u-full-width"
                     placeholder="Pesos Argeninos"
                     onChange={actualizarState}
-                    value={mascota}
+                    value={dolarTarjetaArg}
                     
                 />
                 <label>Valor en pesos mexicanos</label>
                 <input
                     type="text"
-                    name="propietario"
+                    name="pesosMexicanos"
                     className="u-full-width"
                     placeholder="Pesos Mexicanos"
                     onChange={actualizarState}
-                    value={propietario}
+                    value={pesosMexicanos}
                     
                 />
                 
                 <label>Productos</label>
                 <textarea
                     className="u-full-width"
-                    name="sintomas"
+                    name="producto"
                     onChange={actualizarState}
-                    value={sintomas}
+                    value={producto}
                 ></textarea>
 
                 <button
