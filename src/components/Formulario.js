@@ -68,7 +68,7 @@ const Formulario = ({crearCita}) => {
                     type="text"
                     name="dolarTarjetaArg"
                     className="u-full-width"
-                    placeholder="Pesos Argeninos"
+                    placeholder="Pesos Argentinos"
                     onChange={actualizarState}
                     value={dolarTarjetaArg}
                     

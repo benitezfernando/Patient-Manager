@@ -41,7 +41,7 @@ function App() {
 
   return (
     <Fragment>
-      
+      <p className='titulo'>👨‍🌾</p>
       <div className="container">
         <div className="row">
           <div className="one-half column">
