@@ -68,7 +68,7 @@ const Formulario = ({crearCita}) => {
                     type="text"
                     name="dolarTarjetaArg"
                     className="u-full-width"
-                    placeholder="Pesos Argentinos"
+                    placeholder="Valor del Dolar en Pesos Argentinos"
                     onChange={actualizarState}
                     value={dolarTarjetaArg}
                     
@@ -88,6 +88,7 @@ const Formulario = ({crearCita}) => {
                 <textarea
                     className="u-full-width"
                     name="producto"
+                    placeholder="Descripcion producto a cotizar"
                     onChange={actualizarState}
                     value={producto}
                 ></textarea>
