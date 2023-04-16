@@ -63,7 +63,7 @@ const Formulario = ({crearCita}) => {
             <form
                 onSubmit={submitCita}
             >
-                <label>Valor del dolar Tarjeta / Blue (el que quieran) Argentina</label>
+                <label>Dolar Tarjeta / Qatar / MEP / Blue (el que quieran) Argentina</label>
                 <input
                     type="text"
                     name="dolarTarjetaArg"
@@ -73,12 +73,12 @@ const Formulario = ({crearCita}) => {
                     value={dolarTarjetaArg}
                     
                 />
-                <label>Valor en pesos mexicanos</label>
+                <label>Valor en pesos Colombianos</label>
                 <input
                     type="text"
                     name="pesosMexicanos"
                     className="u-full-width"
-                    placeholder="Pesos Mexicanos"
+                    placeholder="Pesos Colombianos"
                     onChange={actualizarState}
                     value={pesosMexicanos}
                     

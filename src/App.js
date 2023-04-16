@@ -42,6 +42,7 @@ function App() {
   return (
     <Fragment>
       <div className="container">
+        <h2>&#127958; Panama/Colombia &#127958;</h2>
         <div className="row">
           <div className="one-half column">
             <Formulario crearCita={crearCita} />

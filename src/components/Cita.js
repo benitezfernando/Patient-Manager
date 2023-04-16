@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const Cita = ({cita, eliminarCita}) =>  ( 
     <div className="cita">
     <p>Producto: <span>{cita.producto}</span></p>
-        <p>Precio en USD: <span>{cita.pesosMexicanos*0.050}</span></p>
-        <p>Precio en MEX: <span>{cita.pesosMexicanos}</span></p>
-        <p>Precio en ARG: <span>{(cita.pesosMexicanos*0.05)*cita.dolarTarjetaArg}</span></p>
+        <p>Precio en USD: <span>{cita.pesosMexicanos*0.00023}</span></p>
+        <p>Precio en Pesos COL: <span>${cita.pesosMexicanos}</span></p>
+        <p>Precio en Pesos ARG: <span>${Math.round((cita.pesosMexicanos*0.00023)*cita.dolarTarjetaArg)}</span></p>
 
 
         <button
