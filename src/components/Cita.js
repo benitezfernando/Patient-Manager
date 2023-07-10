@@ -6,7 +6,7 @@ const Cita = ({cita, eliminarCita}) =>  (
     <p>Producto: <span>{cita.producto}</span></p>
         <p>Precio en USD: <span>{cita.pesosMexicanos*0.00023}</span></p>
         <p>Precio en Pesos COL: <span>${cita.pesosMexicanos}</span></p>
-        <p>Precio en Pesos ARG: <span>${Math.round((cita.pesosMexicanos*0.00023)*cita.dolarTarjetaArg)}</span></p>
+        <p>Precio en Pesos ARG: <span>${Math.round((cita.pesosMexicanos*0.00024)*cita.dolarTarjetaArg)}</span></p>
 
 
         <button
