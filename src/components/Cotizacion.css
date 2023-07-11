@@ -1,0 +1,39 @@
+.cotizacion {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+  }
+  .cotizacion2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;    
+    text-align: center;  
+    
+  }
+  
+  .producto {
+    font-family: 'Staatliches', 'cursive';
+    color: white;
+  }
+  
+  .precio {
+    font-style: italic;
+    color: rgb(1, 184, 1);
+    font-size: large;
+  }
+  
+  @media (min-width: 576px) {
+    /* Estilos para pantallas más grandes */
+    .cotizacion {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }

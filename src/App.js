@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Cita from "./components/Cita";
+import Cotizacion from "./components/Cotizacion"
 
 function App() {
   //Citas en local storage
@@ -44,7 +45,15 @@ function App() {
       <div className="container">
         <h2>&#127958; Panama/Colombia &#127958;</h2>
         <div className="row">
+          
           <div className="one-half column">
+            <div className="cotizacion2">
+              <Cotizacion producto="Oficial" precio={430} />
+              <Cotizacion producto="Blue" precio={450} />
+              <Cotizacion producto="Turista" precio={444} />            
+              <Cotizacion producto="Qatar" precio={430} />
+            </div>
+            
             <Formulario crearCita={crearCita} />
           </div>
           <div className="one-half column">
