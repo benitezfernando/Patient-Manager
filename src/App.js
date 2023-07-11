@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import Formulario from "./components/Formulario";
 import Cita from "./components/Cita";
 import Cotizacion from "./components/Cotizacion"
+import axios from "axios";
 
 function App() {
   //Citas en local storage
@@ -10,8 +11,17 @@ function App() {
     citasIniciales = [];
   }
 
+  const [dolarOficial, setDolarOficial] = useState([]);
+  const [dolarTurista, setDolarTurista] = useState([]);
+  const [dolarBlue, setDolarBlue] = useState([]);
+  const [dolarQatar, setDolarQatar] = useState([]);
+
+
   //Arreglo de citas
   const [citas, guardarCitas] = useState(citasIniciales);
+
+
+  
 
   //Use Effect para realizar ciertas operaciones cuando el state cambia
   useEffect(() => {
@@ -23,6 +33,38 @@ function App() {
       localStorage.setItem("citas", JSON.stringify([]));
     }
   }, [citas]);
+
+  useEffect(() => {
+    axios
+      .get(`https://mercados.ambito.com//dolar/oficial/variacion`)
+      .then((res) => {
+        setDolarOficial(res.data.venta);
+      })
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://mercados.ambito.com//dolarturista/variacion`)
+      .then((res) => {
+        setDolarTurista(res.data.venta);
+      })
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://mercados.ambito.com//dolar/informal/variacion`)
+      .then((res) => {
+        setDolarBlue(res.data.venta);
+      })
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`https://mercados.ambito.com//dolarqatar/variacion`)
+      .then((res) => {
+        setDolarQatar(res.data.venta);
+      })
+  }, []);
 
   //Funcion que tome las citas actuales y agregue la nueva.
   const crearCita = (cita) => {
@@ -48,10 +90,10 @@ function App() {
           
           <div className="one-half column">
             <div className="cotizacion2">
-              <Cotizacion producto="Oficial" precio={430} />
-              <Cotizacion producto="Blue" precio={450} />
-              <Cotizacion producto="Turista" precio={444} />            
-              <Cotizacion producto="Qatar" precio={430} />
+              <Cotizacion producto="Oficial" precio={dolarOficial} />
+              <Cotizacion producto="Blue" precio={dolarBlue} />
+              <Cotizacion producto="Turista" precio={dolarTurista} />            
+              <Cotizacion producto="Qatar" precio={dolarQatar} />
             </div>
             
             <Formulario crearCita={crearCita} />
