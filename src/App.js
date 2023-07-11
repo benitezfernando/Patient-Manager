@@ -16,6 +16,27 @@ function App() {
   const [dolarBlue, setDolarBlue] = useState([]);
   const [dolarQatar, setDolarQatar] = useState([]);
 
+  // Obtener valores iniciales del localStorage o establecer valores predeterminados
+  useEffect(() => {
+    const initialDolarOficial = localStorage.getItem('dolarOficial');
+    const initialDolarTurista = localStorage.getItem('dolarTurista');
+    const initialDolarBlue = localStorage.getItem('dolarBlue');
+    const initialDolarQatar = localStorage.getItem('dolarQatar');
+
+    if (initialDolarOficial) {
+      setDolarOficial(JSON.parse(initialDolarOficial));
+    }
+    if (initialDolarTurista) {
+      setDolarTurista(JSON.parse(initialDolarTurista));
+    }
+    if (initialDolarBlue) {
+      setDolarBlue(JSON.parse(initialDolarBlue));
+    }
+    if (initialDolarQatar) {
+      setDolarQatar(JSON.parse(initialDolarQatar));
+    }
+  }, []);
+
 
   //Arreglo de citas
   const [citas, guardarCitas] = useState(citasIniciales);
@@ -34,37 +55,58 @@ function App() {
     }
   }, [citas]);
 
-  useEffect(() => {
-    axios
-      .get(`https://mercados.ambito.com//dolar/oficial/variacion`)
-      .then((res) => {
-        setDolarOficial(res.data.venta);
-      })
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`https://mercados.ambito.com//dolarturista/variacion`)
-      .then((res) => {
-        setDolarTurista(res.data.venta);
-      })
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`https://mercados.ambito.com//dolar/informal/variacion`)
-      .then((res) => {
-        setDolarBlue(res.data.venta);
-      })
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`https://mercados.ambito.com//dolarqatar/variacion`)
-      .then((res) => {
-        setDolarQatar(res.data.venta);
-      })
-  }, []);
+    // Actualizar valores desde la API y guardar en el localStorage
+    useEffect(() => {
+      axios
+        .get(`https://mercados.ambito.com//dolar/oficial/variacion`)
+        .then((res) => {
+          const ventaDolarOficial = res.data.venta;
+          setDolarOficial(ventaDolarOficial);
+          localStorage.setItem('dolarOficial', JSON.stringify(ventaDolarOficial));
+        })
+        .catch((error) => {
+          console.log('Error al obtener el valor del Dólar Oficial:', error);
+        });
+    }, []);
+  
+    useEffect(() => {
+      axios
+        .get(`https://mercados.ambito.com//dolarturista/variacion`)
+        .then((res) => {
+          const ventaDolarTurista = res.data.venta;
+          setDolarTurista(ventaDolarTurista);
+          localStorage.setItem('dolarTurista', JSON.stringify(ventaDolarTurista));
+        })
+        .catch((error) => {
+          console.log('Error al obtener el valor del Dólar Turista:', error);
+        });
+    }, []);
+  
+    useEffect(() => {
+      axios
+        .get(`https://mercados.ambito.com//dolar/informal/variacion`)
+        .then((res) => {
+          const ventaDolarBlue = res.data.venta;
+          setDolarBlue(ventaDolarBlue);
+          localStorage.setItem('dolarBlue', JSON.stringify(ventaDolarBlue));
+        })
+        .catch((error) => {
+          console.log('Error al obtener el valor del Dólar Blue:', error);
+        });
+    }, []);
+  
+    useEffect(() => {
+      axios
+        .get(`https://mercados.ambito.com//dolarqatar/variacion`)
+        .then((res) => {
+          const ventaDolarQatar = res.data.venta;
+          setDolarQatar(ventaDolarQatar);
+          localStorage.setItem('dolarQatar', JSON.stringify(ventaDolarQatar));
+        })
+        .catch((error) => {
+          console.log('Error al obtener el valor del Dólar Qatar:', error);
+        });
+    }, []);
 
   //Funcion que tome las citas actuales y agregue la nueva.
   const crearCita = (cita) => {
